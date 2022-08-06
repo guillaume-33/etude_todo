@@ -1,0 +1,39 @@
+.logo_header{
+  width: 4rem;
+  margin-left: 3rem;
+}
+.nav_header{
+  width: 100%;
+  background-color: #424558;
+  text-align: center;
+  display: flex;
+}
+
+.ul_header{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 65%;
+
+}
+
+.li_header{
+  list-style-type:none;
+  float: left;
+}
+
+.a_header{
+  display: inline-block;
+  text-decoration: none;
+  padding: 20px 30px;
+  color: #fff;
+}
+
+nav li:hover a{
+  padding: 15px 30px 20px 30px;
+}
+
+.a_header:hover{
+  border-top: 5px solid white;
+  background-color:RGBa(000, 112,192, 0.15);
+}

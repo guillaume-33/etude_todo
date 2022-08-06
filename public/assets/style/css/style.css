@@ -1,0 +1,113 @@
+.logo_header {
+  width: 4rem;
+  margin-left: 3rem;
+}
+
+.nav_header {
+  width: 100%;
+  background-color: #424558;
+  text-align: center;
+  display: flex;
+}
+
+.ul_header {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 65%;
+}
+
+.li_header {
+  list-style-type: none;
+  float: left;
+}
+
+.a_header {
+  display: inline-block;
+  text-decoration: none;
+  padding: 20px 30px;
+  color: #fff;
+}
+
+nav li:hover a {
+  padding: 15px 30px 20px 30px;
+}
+
+.a_header:hover {
+  border-top: 5px solid white;
+  background-color: RGBa(0, 112, 192, 0.15);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#landing_page {
+  margin: auto;
+}
+
+.home_title {
+  text-align: center;
+}
+
+.card {
+  background-size: cover;
+  width: 45%;
+  height: 100%;
+  margin: 2rem;
+  border-radius: 30px;
+  transition: all ease-in-out 0.3s;
+  color: transparent;
+}
+
+.card:hover {
+  filter: grayscale(0.8);
+  color: black;
+  text-shadow: #FFFFFF 2px 2px;
+}
+
+.vue_haut {
+  display: flex;
+  width: 80vw;
+  height: 60vh;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.travail {
+  background-image: url("../../img/liste_ordi.jpg");
+}
+
+.maison {
+  background-image: url("../../img/post_it.jpg");
+}
+
+.vue_bas {
+  display: flex;
+  width: 80vw;
+  height: 60vh;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.amis {
+  background-image: url("../../img/list_papier.jpg");
+}
+
+.watsapp {
+  background-image: url("../../img/wa_2.jpg");
+}
+
+.text_img {
+  text-align: center;
+  padding-bottom: 35%;
+  padding-top: 35%;
+}
+
+.para_home {
+  text-align: center;
+  padding: 5rem;
+}
+
+/*# sourceMappingURL=style.css.map */
