@@ -18,7 +18,7 @@ class Projet
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?categorie $categorie = null;
+    private ?Categorie $categorie = null;
 
 
 
@@ -39,12 +39,12 @@ class Projet
         return $this;
     }
 
-    public function getCategorie(): ?categorie
+    public function getCategorie(): ?Categorie
     {
         return $this->categorie;
     }
 
-    public function setCategorie(?categorie $categorie): self
+    public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
 

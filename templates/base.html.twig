@@ -13,8 +13,13 @@
         <nav class="nav_header">
             <a href="{{ path('home') }}"><img class="logo_header" src="{{ asset('assets/img/logo/logo_small.png') }}" ></a>
             <ul class="ul_header">
-            <li class="li_header"><a class="a_header" href="#">Connexion</a></li>
-            <li class="li_header"><a class="a_header" href="#">Créer compte</a></li>
+                {% if app.user %}
+                    <li class="li_header"><a class="a_header" href="#">Mes listes</a></li>
+                    <li class="li_header"><a class="a_header" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                {% else %}
+                    <li class="li_header"><a class="a_header" href="{{ path('app_login') }}">Connexion</a></li>
+                    <li class="li_header"><a class="a_header" href="{{ path('inscription') }}">Créer compte</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

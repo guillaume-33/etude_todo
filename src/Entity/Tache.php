@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+
 use App\Repository\TacheRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -25,17 +26,17 @@ class Tache
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $destinataire = null;
+    private ?User $destinataire = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $expediteur = null;
+    private ?User $expediteur = null;
 
 
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?projet $projet = null;
+    private ?Projet $projet = null;
 
     #[ORM\Column(length: 255)]
     private ?string $statut = null;
@@ -77,24 +78,24 @@ class Tache
         return $this;
     }
 
-    public function getDestinataire(): ?user
+    public function getDestinataire(): ?User
     {
         return $this->destinataire;
     }
 
-    public function setDestinataire(?user $destinataire): self
+    public function setDestinataire(?User $destinataire): self
     {
         $this->destinataire = $destinataire;
 
         return $this;
     }
 
-    public function getExpediteur(): ?user
+    public function getExpediteur(): ?User
     {
         return $this->expediteur;
     }
 
-    public function setExpediteur(?user $expediteur): self
+    public function setExpediteur(?User $expediteur): self
     {
         $this->expediteur = $expediteur;
 

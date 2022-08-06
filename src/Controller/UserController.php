@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/inscription" , name="inscritpion")
+     * @Route("/inscription" , name="inscription")
      */
 public function inscription(Request $request , EntityManagerInterface $entityManager , UserPasswordHasherInterface $userPasswordHasher){
     $user = new User();
