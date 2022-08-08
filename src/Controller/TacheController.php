@@ -74,6 +74,33 @@ class TacheController extends AbstractController
         } else{
             return $this->render('user_taches.html.twig');
         }
+    }
 
+    /**
+     * @Route("/edit/tache" , name="edit_tache")
+     */
+
+    public function adminupdateListes(TacheRepository $tacheRepository, Request $request, EntityManagerInterface $entityManager){
+        $id=$request->query->get('id');
+
+        $tache = $tacheRepository->find($id);
+        $form= $this->createForm(TacheType::class, $tache);
+        $form->handleRequest($request);
+
+        $user = $this->getUser();//je recupère l'utilisateur en ligne
+        if($user=== $tache->getExpediteur()) { //verifie que l'utilisateur soit bien l'expediteur
+            if ($form ->isSubmitted()) {
+
+                $entityManager->persist($tache);
+                $entityManager->flush();
+            }
+            $this->addFlash("success", "Liste mise a jour");
+
+            return $this->render("edit_tache.html.twig", [
+                'form' => $form->createView()
+            ]);
+        }else{
+            return $this->render('user_taches.html.twig');
+        }
     }
 }

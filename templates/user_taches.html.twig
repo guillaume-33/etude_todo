@@ -42,6 +42,8 @@
             </table>
         </div>
     </section>
+
+
     <section id="listes_envoyées">
         <h2>Mes listes envoyées</h2>
 
@@ -61,7 +63,6 @@
 
                 {% for tachesend in tachesends %}
                     <tr>
-{#                        <td type hidden>{{ tachesend.id }}</td>#}
                         <td>{{ tachesend.destinataire.prenom~' '~ tachesend.destinataire.nom}}</td>
                         <td>{{ tachesend.titre }}</td>
                         <td>{{ tachesend.date|date('d/m/Y') }}</td>
@@ -69,7 +70,7 @@
                         {% if tachesend.statut =='fait' %}
                             <td class="fait">{{ tachesend.statut }}</td>
                         {% elseif tachesend.statut =='fait partiellement'  %}
-                            <td class="partiellement">{{ listesend.statut }}</td>
+                            <td class="partiellement">{{ tachesend.statut }}</td>
                         {% elseif tachesend.statut == 'a faire' %}
                             <td class="faire">{{ tachesend.statut }}</td>
                         {% else %}
@@ -77,7 +78,7 @@
                         {% endif %}
 
                         <td>{{ tachesend.message }}</td>
-{#                        <td><a class="btn" href="{{ path('admin_update', {'id':tachesend.id}) }}">Editer </a></td>#}
+                        <td><a class="btn" href="{{ path('edit_tache', {'id': tachesend.id})}}">Editer </a></td>
 {#                        <td><a class="btn" href="{{ path('delete_liste', {'id':tachesend.id}) }}">Supprimer </a></td>#}
                     </tr>
                 {% endfor %}
