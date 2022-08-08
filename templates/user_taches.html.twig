@@ -1,0 +1,90 @@
+{% extends'base.html.twig' %}
+
+{% block main %}
+
+    <section id="listes_recues">
+        <h2>Mes listes recues</h2>
+
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <tr>
+                    <th type hidden>ID</th>
+                    <th>Expéditeur</th>
+                    {#                <th>Projet</th>#}
+                    <th>Titre</th>
+                    <th>Pour le</th>
+                    <th>Statut</th>
+                    <th>Message</th>
+                    <th>Voir la liste</th>
+                </tr>
+                {% for tache in taches %}
+                    <tr>
+{#                        <td type hidden>{{ tache.id }}</td>#}
+                        <td>{{ tache.expediteur.prenom ~' '~ tache.expediteur.nom }}</td>
+                        {#                <td>{{ liste.categorie.projet }}</td>#}
+                        <td>{{ tache.titre }}</td>
+                        <td>{{ tache.date|date('d/m/Y') }}</td>
+
+                        {% if tache.statut=='fait' %}
+                            <td class="fait">{{ tache.statut }}</td>
+                        {% elseif tache.statut == 'fait partiellement' %}
+                            <td class="partiellement">{{ tache.statut }}</td>
+                        {% elseif tache.statut == 'a faire' %}
+                            <td class="faire">{{ tache.statut }}</td>
+                        {% else %}
+                            <td class="impossible">{{ tache.statut }}</td>
+                        {% endif %}
+
+                        <td>{{ tache.message }}</td>
+{#                        <td><a class="btn" href="{{ path('update_liste', {'id':liste.id}) }}">Voir la liste</a></td>#}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+    <section id="listes_envoyées">
+        <h2>Mes listes envoyées</h2>
+
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <tr>
+                    <th type hidden>ID</th>
+                    <th>Destinataire</th>
+                    <th>Titre</th>
+                    <th>Pour le</th>
+                    <th>Statut</th>
+                    <th>Message</th>
+                    <th>Editer la liste</th>
+                    <th>Supprimer la liste</th>
+                </tr>
+
+
+                {% for tachesend in tachesends %}
+                    <tr>
+{#                        <td type hidden>{{ tachesend.id }}</td>#}
+                        <td>{{ tachesend.destinataire.prenom~' '~ tachesend.destinataire.nom}}</td>
+                        <td>{{ tachesend.titre }}</td>
+                        <td>{{ tachesend.date|date('d/m/Y') }}</td>
+
+                        {% if tachesend.statut =='fait' %}
+                            <td class="fait">{{ tachesend.statut }}</td>
+                        {% elseif tachesend.statut =='fait partiellement'  %}
+                            <td class="partiellement">{{ listesend.statut }}</td>
+                        {% elseif tachesend.statut == 'a faire' %}
+                            <td class="faire">{{ tachesend.statut }}</td>
+                        {% else %}
+                            <td class="impossible">{{ tachesend.statut }}</td>
+                        {% endif %}
+
+                        <td>{{ tachesend.message }}</td>
+{#                        <td><a class="btn" href="{{ path('admin_update', {'id':tachesend.id}) }}">Editer </a></td>#}
+{#                        <td><a class="btn" href="{{ path('delete_liste', {'id':tachesend.id}) }}">Supprimer </a></td>#}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </section>
+
+
+{% endblock %}
