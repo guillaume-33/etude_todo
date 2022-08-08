@@ -41,6 +41,22 @@ class Tache
     #[ORM\Column(length: 255)]
     private ?string $statut = null;
 
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
    
     public function getTitre(): ?string
     {

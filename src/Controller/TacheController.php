@@ -33,17 +33,47 @@ class TacheController extends AbstractController
     }
 
 
-    /**
-     * @Route("/user/taches" , name="user_taches")
-     */
-public function readTache(TacheRepository $tacheRepository, Request $request){
-    $user=$this->getUser();
-    $taches=$tacheRepository->findBy(['destinataire'=>$user]);
-    $tacheSends=$tacheRepository->findBy(['expediteur'=>$user]);
+        /**
+         * @Route("/user/taches" , name="user_taches")
+         */
+    public function readTache(TacheRepository $tacheRepository, Request $request){
+        $user=$this->getUser();
+        $taches=$tacheRepository->findBy(['destinataire'=>$user]);
+        $tacheSends=$tacheRepository->findBy(['expediteur'=>$user]);
 
-    return $this->render('user_taches.html.twig',[
-        'taches'=>$taches,
-        'tachesends'=>$tacheSends
-    ]);
-}
+        return $this->render('user_taches.html.twig',[
+            'taches'=>$taches,
+            'tachesends'=>$tacheSends
+        ]);
+    }
+
+
+    /**
+     * @Route("/user/update/tache", name="update_tache")
+     */
+    public function userUpdateTache(TacheRepository $tacheRepository , EntityManagerInterface $entityManager ,Request $request){
+        $id=$request->query->get('id');
+
+        $tache =$tacheRepository->find($id);
+
+        $user=$this->getUser();// je verifie l'utisisateur en ligne
+
+        if ($user===$tache->getDestinataire()){ //si utilisateur === destinataire, j'accede a la modification
+            if($request->query->has('statut')){
+                $statut = $request->query->get('statut');
+
+                $tache->setStatut($statut);
+
+                $entityManager->persist($tache);
+                $entityManager->flush();
+            }
+            $this->addFlash('success', 'tache mise a jour');
+            return $this->render('user_update_tache.html.twig', [
+                'tache'=>$tache
+            ]);
+        } else{
+            return $this->render('user_taches.html.twig');
+        }
+
+    }
 }

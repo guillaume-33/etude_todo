@@ -19,7 +19,7 @@
                 </tr>
                 {% for tache in taches %}
                     <tr>
-{#                        <td type hidden>{{ tache.id }}</td>#}
+                        <td type hidden>{{ tache.id }}</td>
                         <td>{{ tache.expediteur.prenom ~' '~ tache.expediteur.nom }}</td>
                         {#                <td>{{ liste.categorie.projet }}</td>#}
                         <td>{{ tache.titre }}</td>
@@ -36,7 +36,7 @@
                         {% endif %}
 
                         <td>{{ tache.message }}</td>
-{#                        <td><a class="btn" href="{{ path('update_liste', {'id':liste.id}) }}">Voir la liste</a></td>#}
+                        <td><a class="btn" href="{{ path('update_tache', {'id':tache.id}) }}">Voir la liste</a></td>
                     </tr>
                 {% endfor %}
             </table>

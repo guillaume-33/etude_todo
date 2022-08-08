@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <section id="update_liste">
+        <div class="titre_update">
+            <h1>{{ tache.titre }}</h1>
+            <p>A faire pour le: {{ tache.date|date('d/m/Y') }}</p>
+            <p class="update"> Envoyée par :</p>
+            <p class="update_expediteur">{{ tache.expediteur.prenom ~' '~tache.expediteur.nom }}</p>
+            <p class="update_expediteur">{{ tache.expediteur.email }}</p>
+
+
+        </div>
+        <div class="message_up">
+            <p class="update"> Message de l'expéditeur: <br></p>
+            <p class="message_update"> {{ tache.message }}</p>
+        </div>
+
+
+        <div class="form_update" >
+            <form method="GET">
+                <div>
+                    <input type="radio" id="fait" name="statut" value="fait" class="case fait">
+                    <label for="Statut">Fait</label>
+                </div>
+                <div>
+                    <input type="radio" id="faire" name="statut" value="fait partiellement" class=" case partiellement">
+                    <label for="Statut">Fait partiellement</label>
+                </div>
+                <div>
+                    <input type="radio" id="impossible" name="statut" value="impossible a faire" class="case impossible">
+                    <label for="Statut">Impossible à faire</label>
+                </div>
+
+{#                Bouton caché, permet de récuperer l'id de la liste sans l'afficher#}
+                <input type="hidden" name="id" value="{{ tache.id }}">
+                <input type="submit" class="">
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
