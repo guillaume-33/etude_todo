@@ -37,6 +37,7 @@
 
                         <td>{{ tache.message }}</td>
                         <td><a class="btn" href="{{ path('update_tache', {'id':tache.id}) }}">Voir la liste</a></td>
+
                     </tr>
                 {% endfor %}
             </table>
@@ -79,7 +80,7 @@
 
                         <td>{{ tachesend.message }}</td>
                         <td><a class="btn" href="{{ path('edit_tache', {'id': tachesend.id})}}">Editer </a></td>
-{#                        <td><a class="btn" href="{{ path('delete_liste', {'id':tachesend.id}) }}">Supprimer </a></td>#}
+                        <td><a class="btn" href="{{ path('delete_tache', {'id':tachesend.id}) }}">Supprimer </a></td>
                     </tr>
                 {% endfor %}
             </table>

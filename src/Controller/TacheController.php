@@ -71,9 +71,11 @@ class TacheController extends AbstractController
             return $this->render('user_update_tache.html.twig', [
                 'tache'=>$tache
             ]);
+
         } else{
             return $this->render('user_taches.html.twig');
         }
+
     }
 
     /**
@@ -103,4 +105,19 @@ class TacheController extends AbstractController
             return $this->render('user_taches.html.twig');
         }
     }
+
+
+    /**
+     * @Route("/delete/tache", name="delete_tache")
+     */
+    public function deleteTache(Request $request, TacheRepository $tacheRepository, EntityManagerInterface $entityManager){
+       $id=$request->query->get('id');
+       $tache=$tacheRepository->find($id);
+        $entityManager->remove($tache);
+        $entityManager->flush();
+        $this->addFlash('success', 'Tache supprimée');
+        return $this->redirectToRoute('user_taches');
+    }
+
+
 }
