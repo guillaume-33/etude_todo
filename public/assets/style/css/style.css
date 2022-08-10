@@ -115,8 +115,6 @@ body {
 }
 
 input {
-  display: block;
-  width: 100%;
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
@@ -282,6 +280,24 @@ h2 {
 .faire {
   font-weight: bold;
   text-transform: uppercase;
+}
+
+#form_edit {
+  margin-left: 25%;
+}
+
+.form-tache-message-widget {
+  width: 320px;
+  height: 150px;
+}
+
+#form_edit {
+  margin-left: 25%;
+}
+
+.form-tache-message-widget {
+  width: 320px;
+  height: 150px;
 }
 
 /*# sourceMappingURL=style.css.map */

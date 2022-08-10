@@ -26,15 +26,16 @@ class TacheType extends AbstractType
             ->add('date', DateType::class,[
                     'widget'=>'single_text'
             ])
+
+            ->add('expediteur', EntityType::class,[
+                    'class'=>User::class,
+                    'choice_label'=>'prenom'
+                ])
             ->add('statut')
             ->add('destinataire', EntityType::class,[
                 'class'=>User::class,
                 'choice_label'=>'email'
             ])
-            ->add('expediteur', EntityType::class,[
-                    'class'=>User::class,
-                    'choice_label'=>'prenom'
-                ])
 
             ->add('confirmer', SubmitType::class)
         ;

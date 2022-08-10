@@ -1,5 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    {{form(form) }}
+{#    {{form(form) }}#}
+
+    {{ form_start(form) }}
+    <section id="form_edit">
+        <div>
+            {{ form_label(form.projet, 'Projet ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.projet, {'attr': {'class': 'form-tache-categorie-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.destinataire, 'Destinataire ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.titre, {'attr': {'class': 'form-tache-titre-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.message, {'attr': {'class': 'form-tache-message-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.date, 'date', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.date, {'attr': {'class': 'form-tache-date-widget'}}) }}
+        </div>
+       {{ form_end(form) }}
+    </section>
+
 {% endblock %}
