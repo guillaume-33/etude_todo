@@ -13,7 +13,7 @@ class ProjetType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('categorie')
+//            ->add('categorie')
         ;
     }
 

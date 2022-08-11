@@ -1,0 +1,29 @@
+.form-label{
+  display: block;
+  margin-right: 1rem;
+}
+
+.form_nom{
+  width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.mail_inscription{
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.contact_inscription{
+  display: flex;
+  align-items: center;
+}
+
+.form_inscription{
+  border: 1px solid #424558;
+  border-radius: 2pc;
+  width: 60vw;
+  margin: 5rem;
+}
+

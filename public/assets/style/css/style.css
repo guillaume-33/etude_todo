@@ -110,10 +110,6 @@ body {
   padding: 5rem;
 }
 
-#Form_inscription {
-  margin-left: 40%;
-}
-
 input {
   margin: 10px 0;
   padding: 10px;
@@ -298,6 +294,63 @@ h2 {
 .form-tache-message-widget {
   width: 320px;
   height: 150px;
+}
+
+.form_connection {
+  margin: auto;
+  margin-top: 4rem;
+  border: 1px solid #424558;
+  padding: 2rem;
+  border-radius: 2pc;
+}
+
+.mail_connexion {
+  display: block;
+}
+
+.pass_connexion {
+  display: block;
+}
+
+.inp_pass_connexion {
+  width: 100%;
+}
+
+.imp_mail_connexion {
+  width: 100%;
+}
+
+.connecion_button {
+  margin-left: 25%;
+}
+
+.form-label {
+  display: block;
+  margin-right: 1rem;
+}
+
+.form_nom {
+  width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.mail_inscription {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.contact_inscription {
+  display: flex;
+  align-items: center;
+}
+
+.form_inscription {
+  border: 1px solid #424558;
+  border-radius: 2pc;
+  width: 60vw;
+  margin: 5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
