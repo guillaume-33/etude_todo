@@ -19,7 +19,8 @@ class TacheType extends AbstractType
         $builder
             ->add('projet', EntityType::class,[
                 'class'=>Projet::class,
-                'choice_label'=>'titre'
+                'choice_label'=>'titre',
+                'label'=>'Projet'
             ])
             ->add('titre')
             ->add('message')

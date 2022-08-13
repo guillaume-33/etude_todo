@@ -19,24 +19,24 @@ class TacheController extends AbstractController
      */
     public function createTache(Request $request, EntityManagerInterface $entityManager){
         $tache = new Tache();
-        $projet = new Projet();
+//        $projet = new Projet();
 
-        $form2= $this->createForm(ProjetType::class, $projet);
-        $form2->handleRequest($request);
+//        $form2= $this->createForm(ProjetType::class, $projet);
+//        $form2->handleRequest($request);
 
         $form= $this->createForm(TacheType::class, $tache);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() && $form2->isSubmitted()){
+        if ($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($tache);
-            $entityManager->persist($projet);
+//            $entityManager->persist($projet);
             $entityManager->flush();
 
            $this->addFlash('success', 'tache créée');
         }
         return  $this->render('create_tache.html.twig',[
             'form'=>$form->createView(),
-            'form2'=>$form2->createView(),
+//            'form2'=>$form2->createView(),
         ]);
     }
 
