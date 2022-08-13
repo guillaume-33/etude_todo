@@ -6,21 +6,26 @@
     <section id="Form_inscription">
         <div class="form_inscription">
             {{ form_start(form) }}
+            <div class="inscription_nom">
                         {{ form_label(form.nom, 'Nom', {'label_attr':{'class': 'form-label'}}) }}
                         {{ form_widget(form.nom, {'attr': {'class': "form-user-nom-widget"}}) }}
-
+            </div>
+            <div>
                         {{ form_label(form.prenom, 'Prenom', {'label_attr':{'class': 'form-label'}}) }}
                         {{ form_widget(form.prenom, {'attr': {'class': "form-user-prenom-widget"}}) }}
-
+            </div>
+            <div>
                         {{ form_label(form.email, 'Email', {'label_attr':{'class': 'form-label'}}) }}
                         {{ form_widget(form.email, {'attr': {'class': "form-user-mail-widget"}}) }}
-
+            </div>
+            <div>
                         {{ form_label(form.telephone, 'Telephone', {'label_attr':{'class': 'form-label'}}) }}
                         {{ form_widget(form.telephone, {'attr': {'class': "form-user-telephone-widget"}}) }}
-
+            </div>
+            <div>
                         {{ form_label(form.magasin, 'Magasin', {'label_attr':{'class': 'form-label'}}) }}
                         {{ form_widget(form.magasin, {'attr': {'class': "form-user-magasin-widget"}}) }}
-
+            </div>
                 <div>
                     {{ form_widget(form.password, {'attr': {'class': "form-user-password-widget"}}) }}
                 </div>

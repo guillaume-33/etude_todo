@@ -21,9 +21,34 @@
 }
 
 .form_inscription{
-  border: 1px solid #424558;
-  border-radius: 2pc;
-  width: 60vw;
-  margin: 5rem;
+    margin: auto;
+    margin-top: 4rem;
+    border: 1px solid #424558;
+    padding: 2rem;
+    border-radius: 2pc;
+  width: 300px;
+  }
+
+
+.form-label{
+  display: block;
 }
 
+.form-user-prenom-widget{
+  width: 100%;
+}
+.form-user-nom-widget{
+  width: 100%;
+}
+.form-user-mail-widget{
+  width: 100%;
+}
+.form-user-telephone-widget{
+  width:100%;
+}
+.form-user-magasin-widget{
+  width: 100%;
+  }
+.form-user-password-widget{
+  width: 100%;
+}
