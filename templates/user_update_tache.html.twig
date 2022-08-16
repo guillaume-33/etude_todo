@@ -16,35 +16,36 @@
             <p class="message_update"> {{ tache.message }}</p>
         </div>
 
-
+        <div class="form_update">
+        <form method="GET">
         <label for="statut-select">Définir le statut:</label>
 
-        <select name="tache" id="tache-select">
+        <select name="statut" id="statut-select">
             <option value="">--Définir le statut--</option>
             <option value="Faire" class="faire">A faire </option>
-            <option value="Fait" class="fait">Fait</option>
-            <option value="fait partiellement" class="partiellement">Fait partiellement</option>
-            <option value="impossible a faire " class="impossible">impossible a faire </option>
+            <option value="Fait">Fait</option>
+            <option value="Fait partiellement">Fait partiellement</option>
+            <option value="Impossible a faire ">impossible a faire </option>
         </select>
 
 
 
 
 
-        <div class="form_update" >
-            <form method="GET">
-                <div>
-                    <input type="radio" id="fait" name="statut" value="fait" class="case fait">
-                    <label for="Statut">Fait</label>
-                </div>
-                <div>
-                    <input type="radio" id="faire" name="statut" value="fait partiellement" class=" case partiellement">
-                    <label for="Statut">Fait partiellement</label>
-                </div>
-                <div>
-                    <input type="radio" id="impossible" name="statut" value="impossible a faire" class="case impossible">
-                    <label for="Statut">Impossible à faire</label>
-                </div>
+{#        <div class="form_update" >#}
+{#            <form method="GET">#}
+{#                <div>#}
+{#                    <input type="radio" id="fait" name="statut" value="fait" class="case fait">#}
+{#                    <label for="Statut">Fait</label>#}
+{#                </div>#}
+{#                <div>#}
+{#                    <input type="radio" id="faire" name="statut" value="fait partiellement" class=" case partiellement">#}
+{#                    <label for="Statut">Fait partiellement</label>#}
+{#                </div>#}
+{#                <div>#}
+{#                    <input type="radio" id="impossible" name="statut" value="impossible a faire" class="case impossible">#}
+{#                    <label for="Statut">Impossible à faire</label>#}
+{#                </div>#}
 
 {#                Bouton caché, permet de récuperer l'id de la liste sans l'afficher#}
                 <input type="hidden" name="id" value="{{ tache.id }}">

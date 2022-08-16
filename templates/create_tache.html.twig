@@ -7,7 +7,10 @@
 {{form_start(form) }}
 
 
-
+    <div>
+        {{ form_label(form.projet, 'Nouveau projet:  ', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.projet, {'attr': {'class': 'form-tache-nouveau-projet-widget'}}) }}
+    </div>
     <div>
         {{ form_label(form.destinataire, 'Destinataire :  ', {'label_attr': {'class': 'form-label'}}) }}
         {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}

@@ -10,7 +10,7 @@
                 <tr>
                     <th type hidden>ID</th>
                     <th>Expéditeur</th>
-                    {#                <th>Projet</th>#}
+                    <th>Projet</th>
                     <th>Titre</th>
                     <th>Pour le</th>
                     <th>Statut</th>
@@ -20,12 +20,13 @@
                 {% for tache in taches %}
                     <tr>
                         <td type hidden>{{ tache.id }}</td>
+
                         <td>{{ tache.expediteur.prenom ~' '~ tache.expediteur.nom }}</td>
-                        {#                <td>{{ liste.categorie.projet }}</td>#}
+                        <td>{{ tache.projet.titre }}</td>
                         <td>{{ tache.titre }}</td>
                         <td>{{ tache.date|date('d/m/Y') }}</td>
 
-                        {% if tache.statut=='fait' %}
+                        {% if tache.statut=='Fait' %}
                             <td class="fait">{{ tache.statut }}</td>
                         {% elseif tache.statut == 'fait partiellement' %}
                             <td class="partiellement">{{ tache.statut }}</td>
@@ -53,6 +54,7 @@
                 <tr>
                     <th type hidden>ID</th>
                     <th>Destinataire</th>
+                    <th>Projet</th>
                     <th>Titre</th>
                     <th>Pour le</th>
                     <th>Statut</th>
@@ -65,6 +67,7 @@
                 {% for tachesend in tachesends %}
                     <tr>
                         <td>{{ tachesend.destinataire.prenom~' '~ tachesend.destinataire.nom}}</td>
+                        <td>{{ tachesend.projet.titre }}</td>
                         <td>{{ tachesend.titre }}</td>
                         <td>{{ tachesend.date|date('d/m/Y') }}</td>
 

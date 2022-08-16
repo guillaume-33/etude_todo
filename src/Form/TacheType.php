@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Projet;
 use App\Entity\Tache;
 use App\Entity\User;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -17,6 +18,11 @@ class TacheType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('projet',TextType::class,[
+                'mapped'=>false,
+                'class'=>Projet::class,
+                'label'=>'Nouveau projet'
+            ] )
             ->add('projet', EntityType::class,[
                 'class'=>Projet::class,
                 'choice_label'=>'titre',
@@ -25,12 +31,13 @@ class TacheType extends AbstractType
             ->add('titre')
             ->add('message')
             ->add('date', DateType::class,[
-                    'widget'=>'single_text'
+                    'widget'=>'single_text',
+                    'label'=> 'A faire pour le:'
             ])
 
             ->add('expediteur', EntityType::class,[
                     'class'=>User::class,
-                    'choice_label'=>'prenom'
+                    'choice_label'=>'Prenom'
                 ])
             ->add('statut')
             ->add('destinataire', EntityType::class,[

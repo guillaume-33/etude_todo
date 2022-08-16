@@ -75,11 +75,11 @@ class TacheController extends AbstractController
                 $entityManager->persist($tache);
                 $entityManager->flush();
             }
-            $this->addFlash('success', 'tache mise a jour');
+
             return $this->render('user_update_tache.html.twig', [
                 'tache'=>$tache
             ]);
-
+            $this->addFlash('success', 'tache mise a jour');
         } else{
             return $this->render('user_taches.html.twig');
         }

@@ -15,6 +15,8 @@
     <header>
         <nav class="nav_header desktop">
             <a href="{{ path('home') }}"><img class="logo_header" src="{{ asset('assets/img/logo/logo_small.png') }}" ></a>
+
+
             <ul class="ul_header">
                 {% if app.user %}
                     <li class="li_header"><a class="a_header" href="{{ path('user_taches') }}">Mes listes</a></li>
@@ -27,7 +29,14 @@
             </ul>
         </nav>
     </header>
-
+    {% if app.user %}
+        <p>Bonjour {{ app.user.prenom }}</p>
+    {% endif %}
+    {% for message in app.flashes('success') %}
+        <div class="alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
 
         {% block main %}{% endblock %}
 

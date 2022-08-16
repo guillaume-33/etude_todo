@@ -43,6 +43,11 @@ body {
   padding: 0;
 }
 
+.alert-success {
+  font-size: 30px;
+  background-color: green;
+}
+
 #landing_page {
   margin: auto;
 }
@@ -302,6 +307,7 @@ h2 {
   border: 1px solid #424558;
   padding: 2rem;
   border-radius: 2pc;
+  background-color: grey;
 }
 
 .mail_connexion {
