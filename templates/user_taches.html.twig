@@ -3,7 +3,8 @@
 {% block main %}
 
     <section id="listes_recues">
-        <h2>Mes listes recues</h2>
+
+        <h2>Mes listes reçues</h2>
 
         <div class="table-wrapper">
             <table class="fl-table">
@@ -27,16 +28,16 @@
                         <td>{{ tache.date|date('d/m/Y') }}</td>
 
                         {% if tache.statut=='Fait' %}
-                            <td class="fait">{{ tache.statut }}</td>
-                        {% elseif tache.statut == 'fait partiellement' %}
-                            <td class="partiellement">{{ tache.statut }}</td>
-                        {% elseif tache.statut == 'a faire' %}
-                            <td class="faire">{{ tache.statut }}</td>
+                            <td class="fait"><i class="fa-solid fa-circle-check"></i></td>
+                        {% elseif tache.statut == 'Fait partiellement' %}
+                            <td class="partiellement"><i class="fa-solid fa-circle-check"></i></td>
+                        {% elseif tache.statut == 'Faire' %}
+                            <td class="faire"><i class="fa-regular fa-hourglass"></i></td>
                         {% else %}
-                            <td class="impossible">{{ tache.statut }}</td>
+                            <td class="impossible"><i class="fa-solid fa-circle-xmark"></i></i></td>
                         {% endif %}
 
-                        <td>{{ tache.message }}</td>
+                        <td class="overflow">{{ tache.message }}</td>
                         <td><a class="btn" href="{{ path('update_tache', {'id':tache.id}) }}">Voir la liste</a></td>
 
                     </tr>
@@ -71,17 +72,17 @@
                         <td>{{ tachesend.titre }}</td>
                         <td>{{ tachesend.date|date('d/m/Y') }}</td>
 
-                        {% if tachesend.statut =='fait' %}
+                        {% if tachesend.statut =='Fait' %}
                             <td class="fait">{{ tachesend.statut }}</td>
-                        {% elseif tachesend.statut =='fait partiellement'  %}
+                        {% elseif tachesend.statut =='Fait partiellement'  %}
                             <td class="partiellement">{{ tachesend.statut }}</td>
-                        {% elseif tachesend.statut == 'a faire' %}
+                        {% elseif tachesend.statut == 'Faire' %}
                             <td class="faire">{{ tachesend.statut }}</td>
                         {% else %}
                             <td class="impossible">{{ tachesend.statut }}</td>
                         {% endif %}
 
-                        <td>{{ tachesend.message }}</td>
+                        <td class="overflow">{{ tachesend.message }}</td>
                         <td><a class="btn" href="{{ path('edit_tache', {'id': tachesend.id})}}">Editer </a></td>
                         <td><a class="btn" href="{{ path('delete_tache', {'id':tachesend.id}) }}">Supprimer </a></td>
                     </tr>

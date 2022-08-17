@@ -1,16 +1,13 @@
 
 input {
-  //display:block;
-  //width:100%;
   margin:10px 0;
   padding:10px;
   border-radius:10px;
-  border: 1px solid #eee;
-  transition: .3s border-color;
-}
-
-input:hover{
   border: 1px solid #aaa;
+  transition: .3s border-color;
+  &:hover{
+    border: 1px solid #888;
+  }
 }
 
 form{
@@ -30,13 +27,13 @@ button{
   font-weight:600;
   border-radius:5px;
   width:50%;
-  transition:all ease-in-out 0.3s ;
+  transition:all ease-in-out 0.3s;
+  &:hover{
+    background-color:#6e6a91;
+    cursor:pointer;
+  }
 }
 
-button:hover{
-  opacity:80%;
-  cursor:pointer;
-}
 //-----------------------------------------
 // Connexion : voir page connexion
 //-----------------------------------------

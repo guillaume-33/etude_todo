@@ -6,11 +6,11 @@
     {% endif %}
 
     <form class="form_connection" action="{{ path('app_login') }}" method="post">
-        <label class="mail_connexion" for="username">Email:</label>
-        <input class="imp_mail_connexion" type="text" id="username" name="_username" value="{{ last_username }}"/>
+        <label class="mail_connexion" for="username" >Email:</label>
+        <input class="imp_mail_connexion" type="text" placeholder="Entrez votre adresse mail" id="username" name="_username" value="{{ last_username }}"/>
 
         <label class="pass_connexion" for="password">Mot de passe:</label>
-        <input class="inp_pass_connexion" type="password" id="password" name="_password"/>
+        <input class="inp_pass_connexion" type="password"  placeholder="Entrez votre Mot de passe" id="password" name="_password"/>
 
         {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"/> #}

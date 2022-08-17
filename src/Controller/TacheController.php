@@ -6,6 +6,7 @@ use App\Entity\Projet;
 use App\Entity\Tache;
 use App\Form\ProjetType;
 use App\Form\TacheType;
+use App\Repository\CategorieRepository;
 use App\Repository\TacheRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,26 +18,27 @@ class TacheController extends AbstractController
     /**
      * @Route("/create/tache", name="create_tache")
      */
-    public function createTache(Request $request, EntityManagerInterface $entityManager){
+    public function createTache(Request $request, EntityManagerInterface $entityManager, CategorieRepository $categorieRepository){
         $tache = new Tache();
-//        $projet = new Projet();
 
-//        $form2= $this->createForm(ProjetType::class, $projet);
-//        $form2->handleRequest($request);
 
         $form= $this->createForm(TacheType::class, $tache);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $projet =new Projet();
+            $projet->setTitre($form->get('projet')->getData());//recupere les donnée entrées sur le formulaire
+            $projet->setCategorie($categorieRepository->find(1));
+            $entityManager->persist($projet);
+            $entityManager->flush();
+            $tache->setProjet($projet);
             $entityManager->persist($tache);
-//            $entityManager->persist($projet);
             $entityManager->flush();
 
            $this->addFlash('success', 'tache créée');
         }
         return  $this->render('create_tache.html.twig',[
             'form'=>$form->createView(),
-//            'form2'=>$form2->createView(),
         ]);
     }
 

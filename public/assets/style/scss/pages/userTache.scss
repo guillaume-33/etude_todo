@@ -21,4 +21,32 @@ h2{
 .faire{
   font-weight: bold;
   text-transform: uppercase;
+  background-color: #FFFFFF;
 }
+
+.overflow{
+    text-overflow: " ...";
+}
+
+td{
+  max-width: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+//-------------------------------------------
+.legende{
+  display: flex;
+  align-items: center;
+}
+.div_fait{
+  background-color: green;
+  width: 2rem;
+  height: 1rem;
+}
+.div_fait p{
+  margin-left: 2rem;
+}
+
+
+
+

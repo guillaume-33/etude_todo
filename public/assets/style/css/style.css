@@ -38,9 +38,11 @@ nav li:hover a {
   background-color: RGBa(0, 112, 192, 0.15);
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 .alert-success {
@@ -119,12 +121,11 @@ input {
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #eee;
+  border: 1px solid #aaa;
   transition: 0.3s border-color;
 }
-
 input:hover {
-  border: 1px solid #aaa;
+  border: 1px solid #888;
 }
 
 form {
@@ -145,9 +146,8 @@ button {
   width: 50%;
   transition: all ease-in-out 0.3s;
 }
-
 button:hover {
-  opacity: 80%;
+  background-color: #6e6a91;
   cursor: pointer;
 }
 
@@ -281,6 +281,32 @@ h2 {
 .faire {
   font-weight: bold;
   text-transform: uppercase;
+  background-color: #FFFFFF;
+}
+
+.overflow {
+  text-overflow: " ...";
+}
+
+td {
+  max-width: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.legende {
+  display: flex;
+  align-items: center;
+}
+
+.div_fait {
+  background-color: green;
+  width: 2rem;
+  height: 1rem;
+}
+
+.div_fait p {
+  margin-left: 2rem;
 }
 
 #form_edit {
@@ -292,13 +318,66 @@ h2 {
   height: 150px;
 }
 
-#form_edit {
-  margin-left: 25%;
+#update_liste {
+  display: flex;
+  flex-direction: row;
+  text-align: initial;
+  align-items: stretch;
+  margin: auto;
+  justify-content: center;
+  margin: 6vmax;
 }
 
-.form-tache-message-widget {
-  width: 320px;
-  height: 150px;
+.titre_update {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+  border-left: solid 1px #888;
+}
+
+.titre_update h1 {
+  margin-bottom: 20px;
+}
+
+.update {
+  margin-bottom: 10px;
+}
+
+.pour_le {
+  margin-bottom: 15px;
+}
+
+.message_up {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+}
+
+.message_expediteur_update {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.message_update {
+  margin-bottom: 30px;
+}
+
+.form_update {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+}
+
+.form_select {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.label_select {
+  margin-bottom: 20px;
+}
+
+.sumbit_select {
+  align-self: flex-end;
+  margin-top: auto;
 }
 
 .form_connection {
@@ -307,7 +386,6 @@ h2 {
   border: 1px solid #424558;
   padding: 2rem;
   border-radius: 2pc;
-  background-color: grey;
 }
 
 .mail_connexion {

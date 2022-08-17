@@ -1,0 +1,58 @@
+#update_liste{
+  display: flex;
+  flex-direction: row;
+  text-align: initial;
+  align-items: stretch;
+  margin: auto;
+  justify-content: center;
+  margin: 6vmax;
+}
+//---------------------------------------
+.titre_update{
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+  border-left: solid 1px #888;
+  }
+.titre_update h1{
+  margin-bottom: 20px;
+}
+.update{
+  margin-bottom: 10px;
+}
+.pour_le{
+  margin-bottom: 15px;
+}
+//---------------------------------------
+
+.message_up {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+}
+.message_expediteur_update{
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.message_update{
+  margin-bottom: 30px;
+
+}
+//---------------------------------------
+.form_update{
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+}
+.form_select{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.label_select{
+  margin-bottom: 20px;
+}
+.sumbit_select{
+  align-self: flex-end;
+  margin-top: auto;
+}
+//---------------------------------------
+

@@ -4,7 +4,7 @@
     <section id="update_liste">
         <div class="titre_update">
             <h1>{{ tache.titre }}</h1>
-            <p>A faire pour le: {{ tache.date|date('d/m/Y') }}</p>
+            <p class="pour_le">A faire pour le: {{ tache.date|date('d/m/Y') }}</p>
             <p class="update"> Envoyée par :</p>
             <p class="update_expediteur">{{ tache.expediteur.prenom ~' '~tache.expediteur.nom }}</p>
             <p class="update_expediteur">{{ tache.expediteur.email }}</p>
@@ -12,13 +12,13 @@
 
         </div>
         <div class="message_up">
-            <p class="update"> Message de l'expéditeur: <br></p>
+            <p class="message_expediteur_update"> Message de l'expéditeur: <br></p>
             <p class="message_update"> {{ tache.message }}</p>
         </div>
 
         <div class="form_update">
-        <form method="GET">
-        <label for="statut-select">Définir le statut:</label>
+        <form method="GET" class="form_select">
+        <label for="statut-select" class="label_select">Définir le statut:</label>
 
         <select name="statut" id="statut-select">
             <option value="">--Définir le statut--</option>
@@ -30,26 +30,9 @@
 
 
 
-
-
-{#        <div class="form_update" >#}
-{#            <form method="GET">#}
-{#                <div>#}
-{#                    <input type="radio" id="fait" name="statut" value="fait" class="case fait">#}
-{#                    <label for="Statut">Fait</label>#}
-{#                </div>#}
-{#                <div>#}
-{#                    <input type="radio" id="faire" name="statut" value="fait partiellement" class=" case partiellement">#}
-{#                    <label for="Statut">Fait partiellement</label>#}
-{#                </div>#}
-{#                <div>#}
-{#                    <input type="radio" id="impossible" name="statut" value="impossible a faire" class="case impossible">#}
-{#                    <label for="Statut">Impossible à faire</label>#}
-{#                </div>#}
-
 {#                Bouton caché, permet de récuperer l'id de la liste sans l'afficher#}
                 <input type="hidden" name="id" value="{{ tache.id }}">
-                <input type="submit" class="">
+                <input type="submit" class="sumbit_select">
             </form>
         </div>
     </section>
