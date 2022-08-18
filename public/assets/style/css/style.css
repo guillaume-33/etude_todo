@@ -185,7 +185,7 @@ button:hover {
 
 .fl-table thead th:nth-child(odd) {
   color: #ffffff;
-  background: #324960;
+  background: #424558;
 }
 
 .fl-table tr:nth-child(even) {
@@ -193,13 +193,13 @@ button:hover {
 }
 
 /* Responsive */
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .fl-table {
     display: block;
     width: 100%;
   }
   .table-wrapper:before {
-    content: "Scroll horizontally >";
+    content: "Scroll horizontal >";
     display: block;
     text-align: right;
     font-size: 14px;
@@ -309,13 +309,58 @@ td {
   margin-left: 2rem;
 }
 
-#form_edit {
-  margin-left: 25%;
+.leg_ul {
+  align-items: flex-end;
 }
 
-.form-tache-message-widget {
-  width: 320px;
-  height: 150px;
+.leg_fait {
+  background-color: green;
+  display: inline;
+  color: white;
+}
+
+.leg_partiel {
+  background-color: orange;
+  display: inline;
+  color: white;
+}
+
+.leg_impossible {
+  background-color: darkred;
+  display: inline;
+  color: white;
+}
+
+#form_edit_container {
+  display: flex;
+  flex-direction: row;
+  text-align: initial;
+  align-items: stretch;
+  margin: auto;
+  justify-content: center;
+  margin: 6vmax;
+}
+
+form#form_edit {
+  display: flex;
+  width: unset;
+}
+
+.titre_edit {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+  border-left: solid 1px #888;
+}
+
+.message_edit {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+  border-left: solid 1px #888;
+}
+
+.form_edit_update {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
 }
 
 #update_liste {

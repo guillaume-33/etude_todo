@@ -33,7 +33,7 @@
 
 .fl-table thead th:nth-child(odd) {
   color: #ffffff;
-  background: #324960;
+  background: #424558;
 }
 
 .fl-table tr:nth-child(even) {
@@ -42,13 +42,13 @@
 
 /* Responsive */
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .fl-table {
     display: block;
     width: 100%;
   }
   .table-wrapper:before{
-    content: "Scroll horizontally >";
+    content: "Scroll horizontal >";
     display: block;
     text-align: right;
     font-size: 14px;

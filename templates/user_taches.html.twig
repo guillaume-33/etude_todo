@@ -2,12 +2,19 @@
 
 {% block main %}
 
+    <ul class="leg_ul">
+        <li class="leg_fait">Fait</li>
+        <li class="leg_partiel">Fait partiellement</li>
+        <li class="leg_impossible">Impossible a faire</li>
+    </ul>
+
     <section id="listes_recues">
 
         <h2>Mes listes reçues</h2>
 
         <div class="table-wrapper">
             <table class="fl-table">
+                <thead>
                 <tr>
                     <th type hidden>ID</th>
                     <th>Expéditeur</th>
@@ -18,6 +25,9 @@
                     <th>Message</th>
                     <th>Voir la liste</th>
                 </tr>
+                </thead>
+                <tbody>
+
                 {% for tache in taches %}
                     <tr>
                         <td type hidden>{{ tache.id }}</td>
@@ -31,7 +41,7 @@
                             <td class="fait"><i class="fa-solid fa-circle-check"></i></td>
                         {% elseif tache.statut == 'Fait partiellement' %}
                             <td class="partiellement"><i class="fa-solid fa-circle-check"></i></td>
-                        {% elseif tache.statut == 'Faire' %}
+                        {% elseif tache.statut == 'A faire' %}
                             <td class="faire"><i class="fa-regular fa-hourglass"></i></td>
                         {% else %}
                             <td class="impossible"><i class="fa-solid fa-circle-xmark"></i></i></td>
@@ -42,6 +52,7 @@
 
                     </tr>
                 {% endfor %}
+                </tbody>
             </table>
         </div>
     </section>
@@ -52,41 +63,43 @@
 
         <div class="table-wrapper">
             <table class="fl-table">
-                <tr>
-                    <th type hidden>ID</th>
-                    <th>Destinataire</th>
-                    <th>Projet</th>
-                    <th>Titre</th>
-                    <th>Pour le</th>
-                    <th>Statut</th>
-                    <th>Message</th>
-                    <th>Editer la liste</th>
-                    <th>Supprimer la liste</th>
-                </tr>
-
-
-                {% for tachesend in tachesends %}
+                <thead>
                     <tr>
-                        <td>{{ tachesend.destinataire.prenom~' '~ tachesend.destinataire.nom}}</td>
-                        <td>{{ tachesend.projet.titre }}</td>
-                        <td>{{ tachesend.titre }}</td>
-                        <td>{{ tachesend.date|date('d/m/Y') }}</td>
-
-                        {% if tachesend.statut =='Fait' %}
-                            <td class="fait">{{ tachesend.statut }}</td>
-                        {% elseif tachesend.statut =='Fait partiellement'  %}
-                            <td class="partiellement">{{ tachesend.statut }}</td>
-                        {% elseif tachesend.statut == 'Faire' %}
-                            <td class="faire">{{ tachesend.statut }}</td>
-                        {% else %}
-                            <td class="impossible">{{ tachesend.statut }}</td>
-                        {% endif %}
-
-                        <td class="overflow">{{ tachesend.message }}</td>
-                        <td><a class="btn" href="{{ path('edit_tache', {'id': tachesend.id})}}">Editer </a></td>
-                        <td><a class="btn" href="{{ path('delete_tache', {'id':tachesend.id}) }}">Supprimer </a></td>
+                        <th type hidden>ID</th>
+                        <th>Destinataire</th>
+                        <th>Projet</th>
+                        <th>Titre</th>
+                        <th>Pour le</th>
+                        <th>Statut</th>
+                        <th>Message</th>
+                        <th>Editer la liste</th>
+                        <th>Supprimer la liste</th>
                     </tr>
-                {% endfor %}
+                </thead>
+                <tbody>
+                    {% for tachesend in tachesends %}
+                        <tr>
+                            <td>{{ tachesend.destinataire.prenom~' '~ tachesend.destinataire.nom}}</td>
+                            <td>{{ tachesend.projet.titre }}</td>
+                            <td>{{ tachesend.titre }}</td>
+                            <td>{{ tachesend.date|date('d/m/Y') }}</td>
+
+                            {% if tachesend.statut =='Fait' %}
+                                <td class="fait"><i class="fa-solid fa-circle-check"></i></td>
+                            {% elseif tachesend.statut =='Fait partiellement'  %}
+                                <td class="partiellement"><i class="fa-solid fa-circle-check"></i></td>
+                            {% elseif tachesend.statut == 'A faire' %}
+                                <td class="Faire"><i class="fa-regular fa-hourglass"></i></td>
+                            {% else %}
+                                <td class="impossible"><i class="fa-solid fa-circle-xmark"></i></td>
+                            {% endif %}
+
+                            <td class="overflow">{{ tachesend.message }}</td>
+                            <td><a class="btn" href="{{ path('edit_tache', {'id': tachesend.id})}}">Editer </a></td>
+                            <td><a class="btn" href="{{ path('delete_tache', {'id':tachesend.id}) }}">Supprimer </a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
 

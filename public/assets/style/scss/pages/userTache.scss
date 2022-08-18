@@ -47,6 +47,26 @@ td{
   margin-left: 2rem;
 }
 
+//-------------------------------------------
+.leg_ul{
+  align-items: flex-end;
+}
+.leg_fait{
+  background-color: green;
+  display:inline;
+  color: white;
+}
+.leg_partiel{
+  background-color: orange;
+  display: inline;
+  color: white;
+}
+
+.leg_impossible{
+  background-color: darkred;
+  display: inline;
+  color: white;
+}
 
 
 

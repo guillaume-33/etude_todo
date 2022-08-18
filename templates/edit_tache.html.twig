@@ -1,31 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-{#    {{form(form) }}#}
 
-    {{ form_start(form) }}
-    <section id="form_edit">
-        <div>
-            {{ form_label(form.projet, 'Projet ', {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.projet, {'attr': {'class': 'form-tache-categorie-widget'}}) }}
-        </div>
-        <div>
-            {{ form_label(form.destinataire, 'Destinataire ', {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}
-        </div>
-        <div>
-            {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.titre, {'attr': {'class': 'form-tache-titre-widget'}}) }}
-        </div>
-        <div>
-            {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.message, {'attr': {'class': 'form-tache-message-widget'}}) }}
-        </div>
-        <div>
-            {{ form_label(form.date, 'date', {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.date, {'attr': {'class': 'form-tache-date-widget'}}) }}
-        </div>
-       {{ form_end(form) }}
+    <section id="form_edit_container">
+        {{ form_start(form, {'attr':{'id':'form_edit'}}) }}
+
+
+            <div class="titre_edit">
+                <div>
+                    {{ form_label(form.projet, 'Projet ', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.projet, {'attr': {'class': 'form-tache-categorie-widget'}}) }}
+                </div>
+                <div>
+                    {{ form_label(form.destinataire, 'Destinataire ', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}
+                </div>
+                <div>
+                    {{ form_label(form.titre, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.titre, {'attr': {'class': 'form-tache-titre-widget'}}) }}
+                </div>
+            </div>
+
+            <div class="message_edit">
+                <div>
+                    {{ form_label(form.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.message, {'attr': {'class': 'form-tache-message-widget'}}) }}
+                </div>
+            </div>
+
+            <div class="form_edit_update">
+                <div>
+                    {{ form_label(form.date, 'date', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.date, {'attr': {'class': 'form-tache-date-widget'}}) }}
+                </div>
+                <div>
+                    {{ form_label(form.statut, 'Statut', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.statut, {'attr': {'class': 'form-tache-statut-widget'}}) }}
+                </div>
+                {{ form_row(form.confirmer) }}
+
+{#                <input type="submit" class="sumbit_select">#}
+            </div>
+
+
+        {{ form_end(form) }}
+
     </section>
 
 {% endblock %}
