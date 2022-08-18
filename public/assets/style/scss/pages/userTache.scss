@@ -50,23 +50,46 @@ td{
 //-------------------------------------------
 .leg_ul{
   align-items: flex-end;
-}
-.leg_fait{
-  background-color: green;
-  display:inline;
-  color: white;
-}
-.leg_partiel{
-  background-color: orange;
-  display: inline;
-  color: white;
+  .list-item{
+    width:100px;
+    position: relative;
+    margin:20px 0;
+    &:first-of-type{
+      background-color:green ;
+      &::after{
+        content: ': FAIT';
+        width:200px;
+        position: absolute;
+        left:105%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+    &:nth-of-type(2){
+      background-color:orange ;
+      &::after{
+        content: ': FAIT PARTIELLEMENT';
+        width:200px;
+        position: absolute;
+        left:105%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+    &:last-of-type{
+      background-color:darkred ;
+      &::after{
+        content: ': NON FAIT';
+        width:200px;
+        position: absolute;
+        left:105%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
 }
 
-.leg_impossible{
-  background-color: darkred;
-  display: inline;
-  color: white;
-}
 
 
 

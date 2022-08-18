@@ -206,7 +206,7 @@ button:hover {
     color: white;
     padding: 0 0 10px;
   }
-  .fl-table thead, .fl-table tbody, .fl-table thead th {
+  .fl-table thead, .fl-table tbody, .fl-table thead th:not(:first-of-type) {
     display: block;
   }
   .fl-table thead th:last-child {
@@ -238,13 +238,16 @@ button:hover {
   .fl-table tbody tr {
     display: table-cell;
   }
+  #listes_recues .fl-table tbody tr td:first-of-type {
+    display: none;
+  }
   .fl-table tbody tr:nth-child(odd) {
     background: none;
   }
   .fl-table tr:nth-child(even) {
     background: transparent;
   }
-  .fl-table tr td:nth-child(odd) {
+  .fl-table tr td:nth-child(odd):not(.statut) {
     background: #F8F8F8;
     border-right: 1px solid #E6E4E4;
   }
@@ -312,23 +315,43 @@ td {
 .leg_ul {
   align-items: flex-end;
 }
-
-.leg_fait {
+.leg_ul .list-item {
+  width: 100px;
+  position: relative;
+  margin: 20px 0;
+}
+.leg_ul .list-item:first-of-type {
   background-color: green;
-  display: inline;
-  color: white;
 }
-
-.leg_partiel {
+.leg_ul .list-item:first-of-type::after {
+  content: ": FAIT";
+  width: 200px;
+  position: absolute;
+  left: 105%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.leg_ul .list-item:nth-of-type(2) {
   background-color: orange;
-  display: inline;
-  color: white;
 }
-
-.leg_impossible {
+.leg_ul .list-item:nth-of-type(2)::after {
+  content: ": FAIT PARTIELLEMENT";
+  width: 200px;
+  position: absolute;
+  left: 105%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.leg_ul .list-item:last-of-type {
   background-color: darkred;
-  display: inline;
-  color: white;
+}
+.leg_ul .list-item:last-of-type::after {
+  content: ": NON FAIT";
+  width: 200px;
+  position: absolute;
+  left: 105%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #form_edit_container {

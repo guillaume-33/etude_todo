@@ -55,7 +55,7 @@
     color: white;
     padding: 0 0 10px;
   }
-  .fl-table thead, .fl-table tbody, .fl-table thead th {
+  .fl-table thead, .fl-table tbody, .fl-table thead th:not(:first-of-type) {
     display: block;
   }
   .fl-table thead th:last-child{
@@ -87,13 +87,18 @@
   .fl-table tbody tr {
     display: table-cell;
   }
+
+  #listes_recues .fl-table tbody tr td:first-of-type{
+    display: none;
+  }
   .fl-table tbody tr:nth-child(odd) {
     background: none;
   }
+
   .fl-table tr:nth-child(even) {
     background: transparent;
   }
-  .fl-table tr td:nth-child(odd) {
+  .fl-table tr td:nth-child(odd):not(.statut) {
     background: #F8F8F8;
     border-right: 1px solid #E6E4E4;
   }

@@ -3,9 +3,9 @@
 {% block main %}
 
     <ul class="leg_ul">
-        <li class="leg_fait">Fait</li>
-        <li class="leg_partiel">Fait partiellement</li>
-        <li class="leg_impossible">Impossible a faire</li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+        <li class="list-item"</li>
     </ul>
 
     <section id="listes_recues">
@@ -38,13 +38,13 @@
                         <td>{{ tache.date|date('d/m/Y') }}</td>
 
                         {% if tache.statut=='Fait' %}
-                            <td class="fait"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="fait statut"><i class="fa-solid fa-circle-check"></i></td>
                         {% elseif tache.statut == 'Fait partiellement' %}
-                            <td class="partiellement"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="partiellement statut"><i class="fa-solid fa-circle-check"></i></td>
                         {% elseif tache.statut == 'A faire' %}
-                            <td class="faire"><i class="fa-regular fa-hourglass"></i></td>
+                            <td class="faire statut"><i class="fa-regular fa-hourglass"></i></td>
                         {% else %}
-                            <td class="impossible"><i class="fa-solid fa-circle-xmark"></i></i></td>
+                            <td class="impossible statut"><i class="fa-solid fa-circle-xmark"></i></i></td>
                         {% endif %}
 
                         <td class="overflow">{{ tache.message }}</td>
@@ -85,13 +85,13 @@
                             <td>{{ tachesend.date|date('d/m/Y') }}</td>
 
                             {% if tachesend.statut =='Fait' %}
-                                <td class="fait"><i class="fa-solid fa-circle-check"></i></td>
+                                <td class="fait statut"><i class="fa-solid fa-circle-check"></i></td>
                             {% elseif tachesend.statut =='Fait partiellement'  %}
-                                <td class="partiellement"><i class="fa-solid fa-circle-check"></i></td>
+                                <td class="partiellement statut"><i class="fa-solid fa-circle-check"></i></td>
                             {% elseif tachesend.statut == 'A faire' %}
-                                <td class="Faire"><i class="fa-regular fa-hourglass"></i></td>
+                                <td class="Faire statut"><i class="fa-regular fa-hourglass"></i></td>
                             {% else %}
-                                <td class="impossible"><i class="fa-solid fa-circle-xmark"></i></td>
+                                <td class="impossible statut"><i class="fa-solid fa-circle-xmark"></i></td>
                             {% endif %}
 
                             <td class="overflow">{{ tachesend.message }}</td>

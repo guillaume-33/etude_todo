@@ -51,7 +51,7 @@ class TacheType extends AbstractType
                 'A Faire'=>'A faire',
                 'Fait'=>'Fait',
                 'Fait partiellement'=>'Fait partiellement',
-                'Impossible à faire'=>'Impossible a faire'
+                'Non Fait'=>'Non fait'
                 ],
             ])
             ->add('destinataire', EntityType::class,[
