@@ -2,8 +2,6 @@
   margin: auto;
 }
 
-
-
 .home_title {
   text-align: center;
 }
@@ -63,5 +61,24 @@
   padding: 5rem;
 }
 
+.nav_header_mobil{
+  display: none;
+}
 
+//-----------------------------
 
+@media screen and (max-width: 767px){
+  .vue_haut{
+    flex-direction: column;
+    margin-bottom: 15rem;
+  }
+
+  .vue_bas{
+    flex-direction: column;
+    margin-top: 15rem;
+  }
+
+  .card{
+    width: 100%;
+  }
+}

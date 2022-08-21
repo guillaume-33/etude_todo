@@ -5,7 +5,7 @@
 
     <section id="Form_inscription">
         <div class="form_inscription">
-            {{ form_start(form) }}
+            {{ form_start(form, {'attr':{'id':'form_inscription'}}) }}
             <div class="inscription_nom">
                         {{ form_label(form.nom, 'Nom', {'label_attr':{'class': 'form-label'}}) }}
                         {{ form_widget(form.nom, {'attr': {'class': "form-user-nom-widget"}}) }}

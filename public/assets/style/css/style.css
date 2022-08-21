@@ -50,6 +50,10 @@ nav li:hover a {
   background-color: green;
 }
 
+.annonce_tache {
+  text-align: center;
+}
+
 #landing_page {
   margin: auto;
 }
@@ -117,6 +121,23 @@ nav li:hover a {
   padding: 5rem;
 }
 
+.nav_header_mobil {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .vue_haut {
+    flex-direction: column;
+    margin-bottom: 15rem;
+  }
+  .vue_bas {
+    flex-direction: column;
+    margin-top: 15rem;
+  }
+  .card {
+    width: 100%;
+  }
+}
 input {
   margin: 10px 0;
   padding: 10px;
@@ -378,7 +399,6 @@ form#form_edit {
 .message_edit {
   border-right: solid 1px #888;
   padding: 5px 25px;
-  border-left: solid 1px #888;
 }
 
 .form_edit_update {
@@ -386,6 +406,24 @@ form#form_edit {
   padding: 5px 25px;
 }
 
+.form-tache-message-widget {
+  width: 450px;
+  height: 180px;
+}
+
+#tache_confirmer {
+  margin: 20% 45%;
+  width: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .message_edit {
+    border-left: solid 1px #888;
+  }
+  .form_edit_update {
+    border-left: solid 1px #888;
+  }
+}
 #update_liste {
   display: flex;
   flex-direction: row;
@@ -437,6 +475,9 @@ form#form_edit {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-right: solid 1px #888;
 }
 
 .label_select {
@@ -448,6 +489,18 @@ form#form_edit {
   margin-top: auto;
 }
 
+@media screen and (max-width: 767px) {
+  #update_liste {
+    flex-direction: column;
+  }
+  .form_select {
+    width: 100%;
+    border-left: solid 1px #888;
+  }
+  .message_up {
+    border-left: solid 1px #888;
+  }
+}
 .form_connection {
   margin: auto;
   margin-top: 4rem;
@@ -474,6 +527,10 @@ form#form_edit {
 
 .connecion_button {
   margin-left: 25%;
+}
+
+#form_inscription {
+  width: 100%;
 }
 
 .form-label {
@@ -533,6 +590,134 @@ form#form_edit {
 
 .form-user-password-widget {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .ul_header {
+    display: none;
+  }
+  .nav_header_mobil {
+    display: block;
+  }
+  #menu {
+    z-index: 2;
+  }
+  #menu-bar {
+    width: 45px;
+    height: 40px;
+    margin: 25px 0 20px -20px;
+    cursor: pointer;
+  }
+  .bar {
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  #bar1 {
+    transform: translateY(-4px);
+  }
+  #bar3 {
+    transform: translateY(4px);
+  }
+  .nav {
+    transition: 0.3s ease;
+    display: none;
+  }
+  .nav ul {
+    padding: 0 22px;
+  }
+  .nav li {
+    list-style: none;
+    padding: 12px 0;
+  }
+  .nav li a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .nav li a:hover {
+    font-weight: bold;
+  }
+  .menu-bg, #menu {
+    top: 0;
+    left: 90%;
+    position: absolute;
+  }
+  .menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: radial-gradient(circle, #424558, #424558);
+    border-radius: 0 0 0 45%;
+    transition: 0.3s ease;
+  }
+  .change {
+    display: block;
+  }
+  .change .bar {
+    background-color: white;
+  }
+  .change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+  }
+  .change #bar2 {
+    opacity: 0;
+  }
+  .change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+  }
+  .change-bg {
+    width: 320px;
+    height: 360px;
+    transform: translate(-40%, -15%);
+  }
+}
+#form_create_container {
+  display: flex;
+  flex-direction: row;
+  text-align: initial;
+  align-items: stretch;
+  margin: auto;
+  justify-content: center;
+  margin: 6vmax;
+}
+
+.titre_create {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+  border-left: solid 1px #888;
+}
+
+.message_create {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+}
+
+.date_statut_create {
+  border-right: solid 1px #888;
+  padding: 5px 25px;
+}
+
+@media screen and (max-width: 767px) {
+  #form_edit {
+    flex-direction: column;
+  }
+  #tache_message {
+    width: 80vw;
+  }
+  .message_create {
+    border-left: solid 1px #888;
+  }
+  .date_statut_create {
+    border-left: solid 1px #888;
+  }
+  #tache_confirmer {
+    margin: 5% auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

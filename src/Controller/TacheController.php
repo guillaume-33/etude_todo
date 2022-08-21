@@ -27,12 +27,12 @@ class TacheController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()){
             $projet =new Projet();
-            $projet->setTitre($form->get('projet')->getData());//recupere les données entrées dans le champ formulaire
+            $projet->setTitre($form->get('projet')->getData());//recupere les données entrées dans le champ formulaire pour le projet
             $projet->setCategorie($categorieRepository->find(1));
             $entityManager->persist($projet);
             $entityManager->flush();
             $tache->setProjet($projet);
-            $tache->setExpediteur($this->getUser());
+            $tache->setExpediteur($this->getUser());//vérifie que l'utilisateur et bien l'expéditeur de la tache
             $entityManager->persist($tache);
             $entityManager->flush();
 
@@ -93,7 +93,7 @@ class TacheController extends AbstractController
      * @Route("/edit/tache" , name="edit_tache")
      */
 
-    public function adminEditTAche(TacheRepository $tacheRepository, Request $request, EntityManagerInterface $entityManager){
+    public function adminEditTache(TacheRepository $tacheRepository, Request $request, EntityManagerInterface $entityManager){
         $id=$request->query->get('id');
 
         $tache = $tacheRepository->find($id);

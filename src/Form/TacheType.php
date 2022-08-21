@@ -5,12 +5,14 @@ namespace App\Form;
 use App\Entity\Projet;
 use App\Entity\Tache;
 use App\Entity\User;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Security;
@@ -22,30 +24,24 @@ class TacheType extends AbstractType
     {
 
         $builder
-            ->add('projet',\Symfony\Component\Form\Extension\Core\Type\TextType::class,[
+            ->add('projet',TextType::class,[
                 'mapped'=>false,
-                'label'=>'Nouveau projet'
+                'label'=>'Nouveau projet',
+                'attr'=>['placeholder'=>'Nouveau projet']
             ] )
 
-            //a prevoir pour modification projet
-//            ->add('projet', EntityType::class,[
-//                'class'=>Projet::class,
-//                'choice_label'=>'titre',
-//                'label'=>'Projet'
-//            ])
-            ->add('titre', \Symfony\Component\Form\Extension\Core\Type\TextType::class,[
-                'label'=>'nouvelle tâche'
+            ->add('titre', TextType::class,[
+                'label'=>'nouvelle tâche',
+                'attr'=>['placeholder'=>'Nouvelle tâche']
             ])
-            ->add('message')
+            ->add('message', TextareaType::class,[
+                'attr'=>['placeholder'=>'Message au destinataire']
+            ])
             ->add('date', DateType::class,[
                     'widget'=>'single_text',
                     'label'=> 'A faire pour le:'
             ])
 
-//            ->add('expediteur', EntityType::class,[
-//                    'class'=>User::class,
-//                    'choice_label'=>'Prenom'
-//                ])
             ->add('statut',ChoiceType::class, [
                 'choices'=>[
                 'A Faire'=>'A faire',

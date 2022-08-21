@@ -17,7 +17,7 @@
                 <p class="message_update"> {{ tache.message }}</p>
             </div>
 
-            <div class="form_update">
+
                 <form method="GET" class="form_select">
                 <label for="statut-select" class="label_select">Définir le statut:</label>
 
@@ -32,8 +32,10 @@
     {#                Bouton caché, permet de récuperer l'id de la liste sans l'afficher#}
                     <input type="hidden" name="id" value="{{ tache.id }}">
                     <input type="submit" class="sumbit_select">
+
                 </form>
-            </div>
+
+
 
     </section>
 

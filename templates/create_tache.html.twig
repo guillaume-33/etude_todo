@@ -1,40 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
+    <h1 class="annonce_tache">Créer une tâche</h1>
+<section id="form_create_container">
+{{form_start(form, {'attr':{'id':'form_edit'}}) }}
+    <div class="titre_create">
+        <div>
+            {{ form_label(form.projet, 'Nouveau projet:  ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.projet, {'attr': {'class': 'form-tache-nouveau-projet-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.destinataire, 'Destinataire :  ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.titre, 'Titre : ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.titre, {'attr': {'class': 'form-tache-titre-widget'}}) }}
+        </div>
 
-{{form_start(form) }}
-
-    <div>
-        {{ form_label(form.projet, 'Nouveau projet:  ', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.projet, {'attr': {'class': 'form-tache-nouveau-projet-widget'}}) }}
     </div>
     <div>
-        {{ form_label(form.destinataire, 'Destinataire :  ', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}
+        <div class="message_create">
+            {{ form_label(form.message, 'Message : ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.message, {'attr': {'class': 'form-tache-message-widget'}}) }}
+        </div>
     </div>
-    <div>
-        {{ form_label(form.titre, 'Titre : ', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.titre, {'attr': {'class': 'form-tache-titre-widget'}}) }}
+    <div class="date_statut_create">
+        <div>
+            {{ form_label(form.date, 'Pour le :', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.date, {'attr': {'class': 'form-tache-date-widget'}}) }}
+        </div>
+        <div>
+            {{ form_label(form.statut, 'Statut : ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.statut, {'attr': {'class': 'form-tache-statut-widget'}}) }}
+        </div>
+        {{ form_row(form.confirmer) }}
     </div>
-    <div>
-        {{ form_label(form.message, 'Message : ', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.message, {'attr': {'class': 'form-tache-message-widget'}}) }}
-    </div>
-    <div>
-    {{ form_label(form.date, 'Pour le :', {'label_attr': {'class': 'form-label'}}) }}
-    {{ form_widget(form.date, {'attr': {'class': 'form-tache-date-widget'}}) }}
-    </div>
-    <div>
-        {{ form_label(form.statut, 'Statut : ', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(form.statut, {'attr': {'class': 'form-tache-statut-widget'}}) }}
-    </div>
-{#    <div >#}
-{#        {{ form_label(form.expediteur, 'Expediteur : ', {'label_attr': {'class': 'form-label'}}) }}#}
-{#        {{ form_widget(form.expediteur, {'attr': {'class': 'form-tache-expediteur-widget'}}) }}#}
-
-{#    </div>#}
    {{ form_end(form) }}
 
-
+</section>
 
 {% endblock %}
