@@ -25,13 +25,13 @@ class TacheController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $projet =new Projet(); 
+            $projet =new Projet(); //permet de rajouter un champ de l'entité Projet a la tache
             $projet->setTitre($form->get('projet')->getData());//recupere les données entrées dans le champ formulaire pour le projet
             $projet->setCategorie($categorieRepository->find(1));
             $entityManager->persist($projet);
             $entityManager->flush();
             $tache->setProjet($projet);
-            $tache->setExpediteur($this->getUser());//vérifie que l'utilisateur et bien l'expéditeur de la tache
+            $tache->setExpediteur($this->getUser());//permet de définir l'utilisateur comme etant l'expediteur
             $entityManager->persist($tache);
             $entityManager->flush();
 
