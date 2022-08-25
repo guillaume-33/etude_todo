@@ -21,10 +21,13 @@ class UserType extends AbstractType
                 'attr'=>['placeholder'=>'Entrez votre Mail']
             ])
             ->add('password',RepeatedType::class,[
-                'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Confirmation mot de passe'],
-                'type'=>PasswordType::class,
+
+                'attr' => ['placeholder'=>'Entrez le magasin'],
+
+                'first_options'  => ['label' => 'Mot de passe',  'attr' => ['placeholder'=>'Entrez le mot de passe'] ],
+                'second_options' => ['label' => 'Confirmation mot de passe',  'attr' => ['placeholder'=>'Confirmer le mot de passe']],
                 'invalid_message'=>'Le mot de passe ne correspond pas',
+                'type'=>PasswordType::class,
             ])
             ->add('nom', TextType::class,[
                 'attr'=>['placeholder'=>'Entrez votre Nom']
