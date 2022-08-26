@@ -39,8 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $telephone = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $magasin = null;
+
 
     public function getId(): ?int
     {
@@ -160,15 +159,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getMagasin(): ?string
-    {
-        return $this->magasin;
-    }
-
-    public function setMagasin(string $magasin): self
-    {
-        $this->magasin = $magasin;
-
-        return $this;
-    }
 }

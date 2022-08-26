@@ -22,9 +22,7 @@ class UserType extends AbstractType
             ])
             ->add('password',RepeatedType::class,[
 
-                'attr' => ['placeholder'=>'Entrez le magasin'],
-
-                'first_options'  => ['label' => 'Mot de passe',  'attr' => ['placeholder'=>'Entrez le mot de passe'] ],
+                'first_options'  => ['label' => 'Mot de passe',  'attr' => ['placeholder'=>'Entrez le mot de passe']],
                 'second_options' => ['label' => 'Confirmation mot de passe',  'attr' => ['placeholder'=>'Confirmer le mot de passe']],
                 'invalid_message'=>'Le mot de passe ne correspond pas',
                 'type'=>PasswordType::class,
@@ -37,9 +35,6 @@ class UserType extends AbstractType
             ])
             ->add('telephone', TextType::class, [
                 'attr'=>['placeholder'=>'Entrez votre numéro de téléphone']
-            ])
-            ->add('magasin', TextType::class, [
-                'attr'=>['placeholder'=>'Entrez le magasin']
             ])
             ->add('confirmer', SubmitType::class)
         ;

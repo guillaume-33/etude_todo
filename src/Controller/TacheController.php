@@ -34,7 +34,6 @@ class TacheController extends AbstractController
             $tache->setExpediteur($this->getUser());//permet de définir l'utilisateur comme etant l'expediteur
             $entityManager->persist($tache);
             $entityManager->flush();
-
             $this->addFlash('success', 'tache créée');
         }
         return  $this->render('create_tache.html.twig',[
