@@ -29,9 +29,8 @@ class TacheType extends AbstractType
                 'label'=>'Nouveau projet',
                 'attr'=>['placeholder'=>'Nouveau projet']
             ] )
-
             ->add('titre', TextType::class,[
-                'label'=>'nouvelle tâche',
+                'label'=>'Nouvelle tâche',
                 'attr'=>['placeholder'=>'Nouvelle tâche']
             ])
             ->add('message', TextareaType::class,[
@@ -41,7 +40,6 @@ class TacheType extends AbstractType
                     'widget'=>'single_text',
                     'label'=> 'A faire pour le:'
             ])
-
             ->add('statut',ChoiceType::class, [
                 'choices'=>[
                 'A Faire'=>'A faire',
@@ -54,7 +52,6 @@ class TacheType extends AbstractType
                 'class'=>User::class,
                 'choice_label'=>'email'
             ])
-
             ->add('confirmer', SubmitType::class,[
                 'attr' => ['class' => 'save']
             ])

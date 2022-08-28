@@ -2,7 +2,6 @@
 
 {% block main %}
     <section id="update_liste">
-
             <div class="titre_update">
                 <h1>{{ tache.titre }}</h1>
                 <p class="pour_le">A faire pour le: {{ tache.date|date('d/m/Y') }}</p>
@@ -10,33 +9,23 @@
                 <p class="update_expediteur">{{ tache.expediteur.prenom ~' '~tache.expediteur.nom }}</p>
                 <p class="update_expediteur">{{ tache.expediteur.email }}</p>
             </div>
-
-
             <div class="message_up">
                 <p class="message_expediteur_update"> Message de l'expéditeur: <br></p>
                 <p class="message_update"> {{ tache.message }}</p>
             </div>
-
-
                 <form method="GET" class="form_select">
                 <label for="statut-select" class="label_select">Définir le statut:</label>
-
                 <select name="statut" id="statut-select">
                     <option value="">--Définir le statut--</option>
-                    <option value="A faire" class="faire">A faire </option>
+                    <option value="A faire" class="faire">A faire</option>
                     <option value="Fait">Fait</option>
                     <option value="Fait partiellement">Fait partiellement</option>
-                    <option value="Impossible a faire ">Non Fait </option>
+                    <option value="Impossible a faire ">Non Fait</option>
                 </select>
 
-    {#                Bouton caché, permet de récuperer l'id de la liste sans l'afficher#}
+    {# Bouton de type hidden (n'apparait pas à l'ecran), permet de récuperer l'id de la liste sans l'afficher#}
                     <input type="hidden" name="id" value="{{ tache.id }}">
                     <input type="submit" class="sumbit_select">
-
                 </form>
-
-
-
     </section>
-
 {% endblock %}

@@ -14,10 +14,9 @@
             {{ form_widget(form.destinataire, {'attr': {'class': 'form-tache-destinataire-widget'}}) }}
         </div>
         <div>
-            {{ form_label(form.titre, 'Titre : ', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_label(form.titre, 'Tâche : ', {'label_attr': {'class': 'form-label'}}) }}
             {{ form_widget(form.titre, {'attr': {'class': 'form-tache-titre-widget'}}) }}
         </div>
-
     </div>
     <div>
         <div class="message_create">
@@ -37,7 +36,5 @@
         {{ form_row(form.confirmer) }}
     </div>
    {{ form_end(form) }}
-
 </section>
-
 {% endblock %}

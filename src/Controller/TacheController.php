@@ -27,7 +27,7 @@ class TacheController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()){
             $projet =new Projet(); //permet de rajouter un champ de l'entité Projet a la tache
             $projet->setTitre($form->get('projet')->getData());//recupere les données entrées dans le champ formulaire pour le projet
-            $projet->setCategorie($categorieRepository->find(1));
+            $projet->setCategorie($categorieRepository->find(1));// pour l'instant,automatiquement selectionné sur travail
             $entityManager->persist($projet);
             $entityManager->flush();
             $tache->setProjet($projet);
@@ -45,7 +45,7 @@ class TacheController extends AbstractController
         /**
          * @Route("/user/taches" , name="user_taches")
          */
-    public function readTache(TacheRepository $tacheRepository, Request $request){
+    public function readTache(TacheRepository $tacheRepository){
         $user=$this->getUser();
         $taches=$tacheRepository->findBy(['destinataire'=>$user]);
         $tacheSends=$tacheRepository->findBy(['expediteur'=>$user]);
@@ -67,7 +67,7 @@ class TacheController extends AbstractController
 
         $user=$this->getUser();// je verifie l'utisisateur en ligne
 
-        if ($user===$tache->getDestinataire()){ //si utilisateur === destinataire, j'accede a la modification
+        if ($user===$tache->getDestinataire()){ //si utilisateur est le destinataire de la tâche, j'accede a la page de modification
             if($request->query->has('statut')){
                 $statut = $request->query->get('statut');
 
@@ -75,11 +75,12 @@ class TacheController extends AbstractController
 
                 $entityManager->persist($tache);
                 $entityManager->flush();
+                $this->addFlash('success', 'tache mise a jour');
             }
             return $this->render('user_update_tache.html.twig', [
                 'tache'=>$tache
             ]);
-            $this->addFlash('success', 'tache mise a jour');
+
         } else{
             return $this->render('user_taches.html.twig');
         }
@@ -99,12 +100,13 @@ class TacheController extends AbstractController
 
         $user = $this->getUser();//je recupère l'utilisateur en ligne
         if($user=== $tache->getExpediteur()) { //verifie que l'utilisateur soit bien l'expediteur
-            if ($form ->isSubmitted()) {
+            if ($form ->isSubmitted() && $form->isValid()) {
 
                 $entityManager->persist($tache);
                 $entityManager->flush();
+                $this->addFlash("success", "Liste mise a jour");
             }
-            $this->addFlash("success", "Liste mise a jour");
+
 
             return $this->render("edit_tache.html.twig", [
                 'form' => $form->createView()
