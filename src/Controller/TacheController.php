@@ -62,17 +62,16 @@ class TacheController extends AbstractController
      */
     public function userUpdateTache(TacheRepository $tacheRepository , EntityManagerInterface $entityManager ,Request $request){
         $id=$request->query->get('id');
-
         $tache =$tacheRepository->find($id);
 
-        $user=$this->getUser();// je verifie l'utisisateur en ligne
+        // je verifie l'utisisateur en ligne
+        $user=$this->getUser();
 
-        if ($user===$tache->getDestinataire()){ //si utilisateur est le destinataire de la tâche, j'accede a la page de modification
+        //si utilisateur est le destinataire de la tâche, j'accede a la page de modification
+        if ($user===$tache->getDestinataire()){
             if($request->query->has('statut')){
                 $statut = $request->query->get('statut');
-
                 $tache->setStatut($statut);
-
                 $entityManager->persist($tache);
                 $entityManager->flush();
                 $this->addFlash('success', 'tache mise a jour');
@@ -80,11 +79,10 @@ class TacheController extends AbstractController
             return $this->render('user_update_tache.html.twig', [
                 'tache'=>$tache
             ]);
-
         } else{
-            return $this->render('user_taches.html.twig');
+            //sinon il est redirigé
+            return $this->render('accueil.html.twig');
         }
-
     }
 
     /**
@@ -98,21 +96,22 @@ class TacheController extends AbstractController
         $form= $this->createForm(TacheType::class, $tache);
         $form->handleRequest($request);
 
-        $user = $this->getUser();//je recupère l'utilisateur en ligne
-        if($user=== $tache->getExpediteur()) { //verifie que l'utilisateur soit bien l'expediteur
-            if ($form ->isSubmitted() && $form->isValid()) {
+        //je recupère l'utilisateur en ligne
+        $user = $this->getUser();
 
+        //verifie que l'utilisateur soit bien l'expediteur
+        if($user=== $tache->getExpediteur()) {
+            if ($form ->isSubmitted() && $form->isValid()) {
                 $entityManager->persist($tache);
                 $entityManager->flush();
                 $this->addFlash("success", "Liste mise a jour");
             }
-
-
             return $this->render("edit_tache.html.twig", [
                 'form' => $form->createView()
             ]);
         }else{
-            return $this->render('user_taches.html.twig');
+            //sinon, il est redirigé vers la page d'accueil
+            return $this->render('accueil.html.twig');
         }
     }
 

@@ -1,10 +1,9 @@
 @media screen and (max-width: 768px) {
-
+body{
+  overflow-x:hidden;
+}
   .ul_header{
     display: none;
-  }
-  .nav_header_mobil{
-    display: block;
   }
 
   #menu {
@@ -61,7 +60,7 @@
 
   .menu-bg, #menu {
     top: 0;
-    left: 90%;
+    left: 85%;
     position: absolute;
   }
 
@@ -101,6 +100,9 @@
     transform: translate(-40%, -15%);
   }
 
-
+  .nav_header_mobil{
+    transform: translateX(-50%);
+  }
+  
 }
 

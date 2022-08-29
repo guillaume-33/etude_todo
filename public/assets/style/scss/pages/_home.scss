@@ -70,15 +70,20 @@
 @media screen and (max-width: 767px){
   .vue_haut{
     flex-direction: column;
-    margin-bottom: 15rem;
   }
 
   .vue_bas{
     flex-direction: column;
-    margin-top: 15rem;
   }
 
   .card{
     width: 100%;
+  }
+  .vue_home{
+    display: flex;
+    flex-direction: column;
+  }
+  .para_home{
+   display: none;
   }
 }

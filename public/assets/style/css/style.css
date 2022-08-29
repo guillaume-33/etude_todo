@@ -128,14 +128,19 @@ nav li:hover a {
 @media screen and (max-width: 767px) {
   .vue_haut {
     flex-direction: column;
-    margin-bottom: 15rem;
   }
   .vue_bas {
     flex-direction: column;
-    margin-top: 15rem;
   }
   .card {
     width: 100%;
+  }
+  .vue_home {
+    display: flex;
+    flex-direction: column;
+  }
+  .para_home {
+    display: none;
   }
 }
 input {
@@ -593,11 +598,11 @@ form#form_edit {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
   .ul_header {
     display: none;
-  }
-  .nav_header_mobil {
-    display: block;
   }
   #menu {
     z-index: 2;
@@ -643,7 +648,7 @@ form#form_edit {
   }
   .menu-bg, #menu {
     top: 0;
-    left: 90%;
+    left: 85%;
     position: absolute;
   }
   .menu-bg {
@@ -674,6 +679,9 @@ form#form_edit {
     width: 320px;
     height: 360px;
     transform: translate(-40%, -15%);
+  }
+  .nav_header_mobil {
+    transform: translateX(-50%);
   }
 }
 #form_create_container {
