@@ -1,0 +1,55 @@
+
+{% extends'base.html.twig' %}
+
+{% block main %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1>Administration des tâches</h1>
+            <div class="table-wrapper">
+            <table class="fl-table">
+            <thead>
+                <tr>
+                    <th type hidden>ID</th>
+                    <th>Expéditeur</th>
+                    <th>Destinataire</th>
+                    <th>Projet</th>
+                    <th>Tâche</th>
+                    <th>Pour le</th>
+                    <th>Statut</th>
+                    <th>Message</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+
+        {% for tache in taches %}
+            <tr>
+                <td type hidden>{{ tache.id }}</td>
+                <td>{{ tache.expediteur.prenom ~' '~ tache.expediteur.nom }}</td>
+                <td>{{ tache.destinataire.prenom ~' '~ tache.destinataire.nom }}</td>
+                <td>{{ tache.projet.titre }}</td>
+                <td>{{ tache.titre }}</td>
+
+                {% if tache.date >='now'|date('d/m/Y') %}
+                    <td class="dépassée">date dépassée</td>
+                {% else %}
+                <td>{{  tache.date|date('d/m/Y') }}</td>
+                {% endif %}
+
+                {% if tache.statut=='Fait' %}
+                    <td class="fait statut"><i class="fa-solid fa-circle-check"></i></td>
+                {% elseif tache.statut == 'Fait partiellement' %}
+                    <td class="partiellement statut"><i class="fa-solid fa-circle-check"></i></td>
+                {% elseif tache.statut == 'A faire' %}
+                    <td class="faire statut"><i class="fa-regular fa-hourglass"></i></td>
+                {% else %}
+                    <td class="impossible statut"><i class="fa-solid fa-circle-xmark"></i></i></td>
+                {% endif %}
+
+                <td class="overflow">{{ tache.message }}</td>
+                <td><a class="btn" href="{{ path('update_tache', {'id':tache.id}) }}">Voir la liste</a></td>
+                <td><a class="btn" href="{{ path('delete_tache', {'id':tache.id}) }}">Supprimer </a></td>
+            </tr>
+        {% endfor %}
+      {% endif %}
+
+{% endblock %}

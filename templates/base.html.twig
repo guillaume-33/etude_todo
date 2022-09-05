@@ -31,6 +31,9 @@
                     <li class="li_header"><a class="a_header" href="{{ path('app_login') }}">Connexion</a></li>
                     <li class="li_header"><a class="a_header" href="{{ path('inscription') }}">Créer compte</a></li>
                 {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="li_header"><a class="a_header" href="{{ path('admin_read_tache') }}">Gestion des tâches</a></li>
+                {% endif  %}
             </ul>
         </nav>
 

@@ -9,9 +9,11 @@ use App\Form\TacheType;
 use App\Repository\CategorieRepository;
 use App\Repository\TacheRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class TacheController extends AbstractController
 {
@@ -60,14 +62,16 @@ class TacheController extends AbstractController
     /**
      * @Route("/user/update/tache", name="update_tache")
      */
+    //methode permettant de mettre à jour les tache utilisateur
+    //récupère l'id de la tache et l'utilisateur en ligne
     public function userUpdateTache(TacheRepository $tacheRepository , EntityManagerInterface $entityManager ,Request $request){
         $id=$request->query->get('id');
         $tache =$tacheRepository->find($id);
 
-        // je verifie l'utisisateur en ligne
+        // verifie l'utisisateur en ligne
         $user=$this->getUser();
 
-        //si utilisateur est le destinataire de la tâche, j'accede a la page de modification
+        //si utilisateur est le destinataire de la tâche, il accède à la page de modification
         if ($user===$tache->getDestinataire()){
             if($request->query->has('statut')){
                 $statut = $request->query->get('statut');
@@ -96,7 +100,7 @@ class TacheController extends AbstractController
         $form= $this->createForm(TacheType::class, $tache);
         $form->handleRequest($request);
 
-        //je recupère l'utilisateur en ligne
+        //recupère l'utilisateur en ligne
         $user = $this->getUser();
 
         //verifie que l'utilisateur soit bien l'expediteur
@@ -128,5 +132,29 @@ class TacheController extends AbstractController
         return $this->redirectToRoute('user_taches');
     }
 
+    /**
+     * @Route ("admin/read/tache" , name="admin_read_tache")
+     * @IsGranted("ROLE_ADMIN", message="Accès non autorisé.")
+     */
 
+    public function adminReadTaches(TacheRepository $tacheRepository, EntityManagerInterface $entityManager){
+
+            $taches = $tacheRepository->findAll();
+            return $this->render('admin_read_taches.html.twig', [
+                'taches' => $taches,
+            ]);
+        }
+
+
+    /**
+     * @Route ("/admin/tache", name="admin_delete")
+     */
+    public function adminDeleteTache(Request $request , TacheRepository $tacheRepository ,EntityManagerInterface $entityManager){
+        $id=$request->query->get('id');
+        $tache=$tacheRepository->fin($id);
+        $entityManager->remove($tache);
+        $entityManager->flush();
+        $this->addFlash('success', 'Tache supprimée');
+        return $this->redirectToRoute();
+    }
 }
