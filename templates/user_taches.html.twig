@@ -36,7 +36,7 @@
                         <td>{{ tache.projet.titre }}</td>
                         <td>{{ tache.titre }}</td>
                         <td>{{ tache.date|date('d/m/Y') }}</td>
-                     
+
                         {% if tache.statut == 'Fait' %}
                             <td class="fait statut"><i class="fa-solid fa-circle-check"></i></td>
                         {% elseif tache.statut == 'Fait partiellement' %}
@@ -102,6 +102,5 @@
             </table>
         </div>
     </section>
-
 
 {% endblock %}

@@ -6,6 +6,8 @@ use App\Entity\User;
 use App\Form\UserType;
 
 use Doctrine\ORM\EntityManagerInterface;
+use PhpParser\Node\Stmt\Return_;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -39,4 +41,32 @@ public function inscription(Request $request , EntityManagerInterface $entityMan
                         "form"=> $form->createView()
         ]);
 }
+
+/**
+ * @Route ("/add_admin" , name="add_admin")
+ * @IsGranted("ROLE_ADMIN", message="Accès non autorisé.")
+ */
+
+public function AddAdmin(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher){
+    $user=new User();
+    $user->setRoles(['ROLE_ADMIN']);
+
+    $form= $this->createForm(UserType::class, $user);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()){
+        $userpassword= $form->get('password')->getData();
+        $cryptedPassword=$userPasswordHasher->hashPassword($user, $userpassword);
+
+        $user->setPassword($cryptedPassword);
+
+        $entityManager->persist($user);
+        $entityManager->flush();
+        $this->addFlash('success', 'Administrateur créé');
+    }
+    Return $this->render("Admin/add_admin.html.twig",[
+        "form"=>$form->createView()
+    ]);
+}
+
 }

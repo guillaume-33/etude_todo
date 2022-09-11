@@ -1,4 +1,4 @@
-console.log('test');
+
 
 function menuOnClick() {
     document.getElementById("menu-bar").classList.toggle("change");

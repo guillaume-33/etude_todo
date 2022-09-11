@@ -48,6 +48,7 @@ nav li:hover a {
 .alert-success {
   font-size: 30px;
   background-color: green;
+  text-align: center;
 }
 
 .annonce_tache {
@@ -123,6 +124,10 @@ nav li:hover a {
 
 .nav_header_mobil {
   display: none;
+}
+
+.bonjour {
+  margin-left: 80%;
 }
 
 @media screen and (max-width: 767px) {
@@ -378,11 +383,6 @@ td {
   left: 105%;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.depassee {
-  color: red;
-  font-weight: bold;
 }
 
 #form_edit_container {

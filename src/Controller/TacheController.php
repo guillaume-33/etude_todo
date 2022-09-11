@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Projet;
 use App\Entity\Tache;
-use App\Form\ProjetType;
 use App\Form\TacheType;
 use App\Repository\CategorieRepository;
 use App\Repository\TacheRepository;
@@ -13,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
+
 
 class TacheController extends AbstractController
 {
@@ -27,13 +26,17 @@ class TacheController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $projet =new Projet(); //permet de rajouter un champ de l'entité Projet a la tache
-            $projet->setTitre($form->get('projet')->getData());//recupere les données entrées dans le champ formulaire pour le projet
-            $projet->setCategorie($categorieRepository->find(1));// pour l'instant,automatiquement selectionné sur travail
+            //permet de rajouter un champ de l'entité Projet a la tache
+            $projet =new Projet();
+            //recupere les données entrées dans le champ formulaire pour le projet
+            $projet->setTitre($form->get('projet')->getData());
+            // pour l'instant,automatiquement selectionné sur travail
+            $projet->setCategorie($categorieRepository->find(1));
             $entityManager->persist($projet);
             $entityManager->flush();
             $tache->setProjet($projet);
-            $tache->setExpediteur($this->getUser());//permet de définir l'utilisateur comme etant l'expediteur
+            //permet de définir l'utilisateur comme etant l'expediteur
+            $tache->setExpediteur($this->getUser());
             $entityManager->persist($tache);
             $entityManager->flush();
             $this->addFlash('success', 'tache créée');
@@ -62,8 +65,8 @@ class TacheController extends AbstractController
     /**
      * @Route("/user/update/tache", name="update_tache")
      */
-    //methode permettant de mettre à jour les tache utilisateur
-    //récupère l'id de la tache et l'utilisateur en ligne
+    //methode permettant de mettre à jour les tâches utilisateur
+    //récupère l'id de la tâche et l'utilisateur en ligne
     public function userUpdateTache(TacheRepository $tacheRepository , EntityManagerInterface $entityManager ,Request $request){
         $id=$request->query->get('id');
         $tache =$tacheRepository->find($id);
@@ -92,11 +95,13 @@ class TacheController extends AbstractController
     /**
      * @Route("/edit/tache" , name="edit_tache")
      */
-
-    public function adminEditTache(TacheRepository $tacheRepository, Request $request, EntityManagerInterface $entityManager){
+    // méthode permettant d'éditer une tache envoyée
+    //récupere l'id de la tâche ainsi que l'utilisateur en ligne
+    public function userEditTache(TacheRepository $tacheRepository, Request $request, EntityManagerInterface $entityManager){
+        //recupèere l'id de la tache
         $id=$request->query->get('id');
-
         $tache = $tacheRepository->find($id);
+
         $form= $this->createForm(TacheType::class, $tache);
         $form->handleRequest($request);
 
@@ -155,6 +160,6 @@ class TacheController extends AbstractController
         $entityManager->remove($tache);
         $entityManager->flush();
         $this->addFlash('success', 'Tache supprimée');
-        return $this->redirectToRoute();
+
     }
 }
