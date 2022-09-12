@@ -48,11 +48,11 @@
     width: 100%;
   }
   .table-wrapper:before{
-    content: "Scroll horizontal >";
+    content: "Faire défiler à droite>";
     display: block;
     text-align: right;
     font-size: 14px;
-    color: white;
+    color: black;
     padding: 0 0 10px;
   }
   .fl-table thead, .fl-table tbody, .fl-table thead th:not(:first-of-type) {

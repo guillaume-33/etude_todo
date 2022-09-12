@@ -153,10 +153,11 @@ class TacheController extends AbstractController
 
     /**
      * @Route ("/admin/tache", name="admin_delete")
+     * @IsGranted("ROLE_ADMIN", message="Accès non autorisé.")
      */
     public function adminDeleteTache(Request $request , TacheRepository $tacheRepository ,EntityManagerInterface $entityManager){
         $id=$request->query->get('id');
-        $tache=$tacheRepository->fin($id);
+        $tache=$tacheRepository->find($id);
         $entityManager->remove($tache);
         $entityManager->flush();
         $this->addFlash('success', 'Tache supprimée');

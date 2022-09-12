@@ -1,0 +1,17 @@
+{% extends'base.html.twig' %}
+
+{% block main %}
+    {% for user in users %}
+        {%  if 'ROLE_USER' in user.roles %}
+            <article>
+                <div>
+                    <p>Nom : {{ user.nom }}</p>
+                    <p>Prénom : {{ user.prenom }}</p>
+                    <p>Mail : {{ user.email }}</p>
+                    <a href="#">Contacter cet utilisateur</a>
+                    <a href="{{ path('update_user', {'id':user.id}) }}">Accorder le statut d'administrateur</a>
+                </div>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
