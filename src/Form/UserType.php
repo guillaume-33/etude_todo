@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class UserType extends AbstractType
 {
@@ -27,6 +28,8 @@ class UserType extends AbstractType
                 'first_options'  => ['label' => 'Mot de passe',  'attr' => ['placeholder'=>'Entrez le mot de passe']],
                 'second_options' => ['label' => 'Confirmation mot de passe',  'attr' => ['placeholder'=>'Confirmer le mot de passe']],
                 'invalid_message'=>'Le mot de passe ne correspond pas',
+                'constraints'=>[new Length(['min'=>8])],
+                'invalid_message'=>'Le mot de passe doit avoir au moins 8 caractères',
                 'type'=>PasswordType::class,
             ])
             ->add('nom', TextType::class,[
